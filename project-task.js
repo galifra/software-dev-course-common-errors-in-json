@@ -41,30 +41,30 @@ but it contains multiple syntax errors that prevent it from being parsed.
 
 
 // ============================================
-// 🔍 Provided JSON File with Errors
+// 🔍 Provided JSON File with Errors and Fixes
 // ============================================
 
 const invalidBookingJSON = `
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15",              /* ✅ Added missing comma after this line to separate properties */
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      "name": "Alice Johnson",               /* ✅ Added double quotes around key "name" */
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
+      "age": null,                           /* ✅ Changed 'undefined' to null (valid JSON value) */
       "email": "bob.smith@example"
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"]  /* ✅ Removed trailing comma after "Parking" */
   }
 }
 `;
